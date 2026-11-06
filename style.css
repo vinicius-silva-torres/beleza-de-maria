@@ -67,21 +67,10 @@ height: 10vh
     overflow: hidden;
 }
 
-@media screen {
-
-    .carrossel-galeria {
-    
-    overflow: visible;
-}
-    
-}
-
- 
-
 .card-carrossel {
 
     position: absolute; 
-    width: 270px;
+    width: 250px;
     height: 270px;
     object-fit: cover;
     border-radius: 18px;
@@ -203,7 +192,7 @@ padding-top: 3%;
     flex-shrink: 0;
 }
 
-/* Botão Flutuante com CTA (Pílula no canto da tela) */
+
 .whatsapp-pilula-flutuante {
     position: fixed;
     bottom: 20px;
@@ -229,7 +218,7 @@ padding-top: 3%;
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
 }
 
-/* Se você colocar o SVG dentro do botão grande do final da página (.botao-whatsapp) */
+
 .botao-whatsapp {
     display: inline-flex;
     align-items: center;
