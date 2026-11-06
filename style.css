@@ -13,6 +13,8 @@ body {
     background-color: var(--pink);
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .logo{
@@ -57,14 +59,21 @@ height: 10vh
     display:flex ;
     position: relative;
     width: 100%;
-    height: 63vh;
-    max-width: 500px;
-    max-height: 500px;
+    height: 320px;
+    max-width: 420px ;
     margin: 0 auto;
-    
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+@media screen {
+
+    .carrossel-galeria {
+    
     overflow: visible;
+}
+    
 }
 
  
@@ -72,8 +81,8 @@ height: 10vh
 .card-carrossel {
 
     position: absolute; 
-    width: 50vh;
-    height: 50vh;
+    width: 270px;
+    height: 270px;
     object-fit: cover;
     border-radius: 18px;
     opacity: 0;
@@ -86,19 +95,19 @@ height: 10vh
     opacity: 1;
     z-index: 3;
     transform: translateX(0) scale(1);
-    box-shadow: 1px 3px 8px 2px rgba(45, 27, 46, 0.3);
+    box-shadow: 0 10px 25px rgba(45, 27, 46, 0.3);
 }
 
 .card-carrossel.esquerda {
     opacity: 0.5;
     z-index: 2;
-    transform: translateX(-45%) scale(0.8) rotate(-6deg);
+    transform: translateX(-38%) scale(0.8) rotate(-6deg);
 }
 
 .card-carrossel.direita {
     opacity: 0.5;
     z-index: 2;
-    transform: translateX(45%) scale(0.8) rotate(6deg);
+    transform: translateX(38%) scale(0.8) rotate(6deg);
 }
 
 
@@ -150,25 +159,7 @@ background: var(--fundo);
 
 }
 
-.btn-whatsapp {
 
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10;
-     background-color: #25d366;
-  color: #fff;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
 
 
 #img-presente-exclusivo {
@@ -229,7 +220,7 @@ padding-top: 3%;
     gap: 10px;
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
     z-index: 9999;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;          
     animation: pulsoWhats 2s infinite;
 }
 
@@ -244,14 +235,21 @@ padding-top: 3%;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 18px 32px;
+    padding: 18px 35px;
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 1.05rem;
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulsoWhats 2s infinite; /* Ativa o pulso infinito */
+}
+
+.botao-whatsapp:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
 }
 
 @keyframes pulsoWhats {
