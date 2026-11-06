@@ -64,7 +64,7 @@ height: 10vh
     
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
  
@@ -140,7 +140,35 @@ height: 10vh
     animation-range: entry 0% cover 40%;
 }
 
+.vantagem {
 
+background: var(--fundo);
+ padding: 18px;
+  border-radius: 15px;
+   margin: 12px auto;
+    max-width: 320px;
+
+}
+
+.btn-whatsapp {
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+     background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
 
 
 #img-presente-exclusivo {
@@ -151,23 +179,20 @@ padding-top: 3%;
 
 .titulo-bordados{
 
-background-color: #ff6af3;
-border-radius: 40%;
-animation: aparecerTitulo linear both;
-animation-timeline: view();
-animation-range: entry 0% cover 30%;
+    background-color: #ff6af3;
+    border-radius: 40%;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: aparecerTitulo linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
 
 }
 
 @keyframes aparecerTitulo {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
+  to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 
@@ -181,16 +206,56 @@ animation-range: entry 0% cover 30%;
     }
 }
 
+.icone-whats {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
 
+/* Botão Flutuante com CTA (Pílula no canto da tela) */
+.whatsapp-pilula-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: pulsoWhats 2s infinite;
+}
+
+.whatsapp-pilula-flutuante:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+/* Se você colocar o SVG dentro do botão grande do final da página (.botao-whatsapp) */
 .botao-whatsapp {
-    display: inline-block;
-    padding: 18px 35px;
-    background-color: #25D366;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 32px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     color: white;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 50px;
     font-weight: bold;
-    animation: crescer linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    font-size: 1.05rem;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+@keyframes pulsoWhats {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
