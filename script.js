@@ -49,3 +49,73 @@ carrossel.addEventListener('touchend', (e) => {
 
 
 atualizarCarrossel();
+
+
+
+
+const anoAtual = new Date().getFullYear();
+const spanAno = document.getElementById('ano-atual');
+
+if (spanAno) {
+    spanAno.textContent = anoAtual;
+}
+
+
+
+
+const cardsDepo = document.querySelectorAll('.card-whats-carrossel');
+const containerDepo = document.querySelector('.carrossel-depoimentos');
+let indiceDepo = 0;
+let inicioToqueDepo = 0;
+
+function atualizarDepoimentos() {
+    cardsDepo.forEach((card, i) => {
+        card.classList.remove('centro', 'esquerda', 'direita');
+        if (i === indiceDepo) {
+            card.classList.add('centro');
+        } else if (i === (indiceDepo - 1 + cardsDepo.length) % cardsDepo.length) {
+            card.classList.add('esquerda');
+        } else if (i === (indiceDepo + 1) % cardsDepo.length) {
+            card.classList.add('direita');
+        }
+    });
+}
+
+if (cardsDepo.length > 0) {
+    atualizarDepoimentos();
+
+   
+    cardsDepo.forEach((card, i) => {
+        card.addEventListener('click', () => {
+            if (card.classList.contains('direita')) {
+                indiceDepo = (indiceDepo + 1) % cardsDepo.length;
+                atualizarDepoimentos();
+            } else if (card.classList.contains('esquerda')) {
+                indiceDepo = (indiceDepo - 1 + cardsDepo.length) % cardsDepo.length;
+                atualizarDepoimentos();
+            }
+        });
+    });
+
+   
+    containerDepo.addEventListener('touchstart', (e) => {
+        inicioToqueDepo = e.touches[0].clientX;
+    }, { passive: true });
+
+    containerDepo.addEventListener('touchend', (e) => {
+        let fimToqueDepo = e.changedTouches[0].clientX;
+        if (inicioToqueDepo - fimToqueDepo > 40) {
+            indiceDepo = (indiceDepo + 1) % cardsDepo.length; // Deslizou para a esquerda
+            atualizarDepoimentos();
+        } else if (fimToqueDepo - inicioToqueDepo > 40) {
+            indiceDepo = (indiceDepo - 1 + cardsDepo.length) % cardsDepo.length; // Deslizou para a direita
+            atualizarDepoimentos();
+        }
+    }, { passive: true });
+
+    
+    setInterval(() => {
+        indiceDepo = (indiceDepo + 1) % cardsDepo.length;
+        atualizarDepoimentos();
+    }, 4500);
+}

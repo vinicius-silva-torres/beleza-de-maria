@@ -1,4 +1,3 @@
-
 :root {
     --pink: #faaec7;
     --vinho: #2D1B2E;
@@ -11,8 +10,9 @@
 
 
 
-html, body {
-    
+html,
+body {
+
     margin: 0;
     padding: 0;
     position: relative;
@@ -28,15 +28,14 @@ body {
 
 }
 
-.logo{
+.logo {
 
-display: flex;
-align-items: left;
-height: 10vh
-
+    display: flex;
+    align-items: left;
+    height: 10vh
 }
 
-.cabecalho{
+.cabecalho {
 
     color: var(--fontecabecalho);
     text-decoration: none;
@@ -58,13 +57,14 @@ height: 10vh
 
 .cabecalho a {
 
-color: #ffffff;
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: bold;
     padding: 8px 12px;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.15); /* Efeito vidro translúcido */
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Efeito vidro translúcido */
     transition: background-color 0.3s ease, transform 0.2s ease;
 
 }
@@ -91,35 +91,38 @@ nav.cabecalho a:hover {
 
 .destaque-animado {
     /* Cor inicial do texto (ex: preto para salão, ou o vinho do bordado) */
-    color: var(--vinho); 
+    color: var(--vinho);
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4));
-    
+
     /* Prepara o texto para receber a tinta (background) */
-    background: linear-gradient(
-        90deg, 
-        var(--destaque) 0%,       /* A "Tinta": Dourado para salão ou #ff6af3 para bordado */
-        var(--destaque) 0% 50%, 
-        var(--vinho) 50%, /* A cor original esperando para ser pintada */
-        var(--vinho) 100%
-    );
-    background-size: 200% 100%; /* Cria o espaço para o movimento */
-    background-position: 100% 0; /* Começa com o texto na cor original (direita) */
-    
+    background: linear-gradient(90deg,
+            var(--destaque) 0%,
+            /* A "Tinta": Dourado para salão ou #ff6af3 para bordado */
+            var(--destaque) 0% 50%,
+            var(--vinho) 50%,
+            /* A cor original esperando para ser pintada */
+            var(--vinho) 100%);
+    background-size: 200% 100%;
+    /* Cria o espaço para o movimento */
+    background-position: 100% 0;
+    /* Começa com o texto na cor original (direita) */
+
     /* Aplica o fundo (tinta) APENAS no texto */
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;
     background-clip: text;
-    
+
     /* Deixa o texto invisível para o fundo aparecer por trás dele */
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
 
     /* Dispara a animação como uma pincelada contínua */
     animation: passarTinta 2.5s ease-in-out 0.3s forwards;
-    
+
 }
 
 .titulo-2 {
 
-    animation-timeline: view(); animation-range: entry 10% cover 40%;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
 }
 
 /* O motor da animação: move o gradiente da direita (cor original) para a esquerda (tinta) */
@@ -141,7 +144,6 @@ nav.cabecalho a:hover {
     align-items: center;
     flex-direction: column;
     justify-content: center
-    
 }
 
 .hero h1 {
@@ -156,12 +158,12 @@ nav.cabecalho a:hover {
 }
 
 .carrossel-galeria {
-    
-    display:flex ;
+
+    display: flex;
     position: relative;
     width: 100%;
     height: 320px;
-    max-width: 420px ;
+    max-width: 420px;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
@@ -170,7 +172,7 @@ nav.cabecalho a:hover {
 
 .card-carrossel {
 
-    position: absolute; 
+    position: absolute;
     width: 250px;
     height: 270px;
     object-fit: cover;
@@ -202,25 +204,25 @@ nav.cabecalho a:hover {
 
 .vantagem {
 
-background: var(--fundo);
-padding: 18px;
-border-radius: 15px;
-margin: 12px auto;
-max-width: 320px;
-opacity: 1;
-transform: translateX(-20px);
-animation: aparecerTitulo linear both;
-animation-timeline: view();
-animation-range: entry 10% cover 40%;
+    background: var(--fundo);
+    padding: 18px;
+    border-radius: 15px;
+    margin: 12px auto;
+    max-width: 320px;
+    opacity: 1;
+    transform: translateX(-20px);
+    animation: aparecerTitulo linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
 
 }
 
-.CTA-Whatsapp{
+.CTA-Whatsapp {
 
-transform: translateX(-20px);
-animation: aparecerTitulo linear both;
-animation-timeline: view();
-animation-range: entry 10% cover 40%;
+    transform: translateX(-20px);
+    animation: aparecerTitulo linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
 
 }
 
@@ -229,18 +231,18 @@ animation-range: entry 10% cover 40%;
 
 #img-presente-exclusivo {
 
-padding-top: 3%;
+    padding-top: 3%;
 
 }
 
-.card-bordado{
+.card-bordado {
 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.card-bordado img{
+.card-bordado img {
 
     object-fit: cover;
     height: 35vh;
@@ -251,11 +253,11 @@ padding-top: 3%;
 
 }
 
-.titulos-secundarios{
-    
+.titulos-secundarios {
+
     background-color: var(--fundo);
     font-weight: bold;
-    
+
     letter-spacing: 1px;
     padding: 6px 16px;
     border-radius: 50px;
@@ -265,12 +267,194 @@ padding-top: 3%;
     animation: aparecerTitulo linear both;
     animation-timeline: view();
     animation-range: entry 10% cover 40%;
-     
-    
+
+
+}
+
+.secao-depoimentos {
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.carrossel-depoimentos {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 340px;
+    max-width: 420px;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-whats-carrossel {
+    position: absolute;
+    width: 285px;
+    background-color: #efeae2;
+    /* Textura sutil imitando o papel de parede do WhatsApp */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+    background-size: 14px 14px;
+    border-radius: 18px;
+    border: 3px solid #ffffff; /* Borda de recorte de print */
+    overflow: hidden;
+    text-align: left;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform 0.6s ease, opacity 0.6s ease, z-index 0.6s;
+    user-select: none;
+}
+
+/* Posições do Carrossel */
+.card-whats-carrossel.centro {
+    opacity: 1;
+    z-index: 3;
+    transform: translateX(0) scale(1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.card-whats-carrossel.esquerda {
+    opacity: 0.45;
+    z-index: 2;
+    transform: translateX(-32%) scale(0.82) rotate(-4deg);
+    cursor: pointer;
+}
+
+.card-whats-carrossel.direita {
+    opacity: 0.45;
+    z-index: 2;
+    transform: translateX(32%) scale(0.82) rotate(4deg);
+    cursor: pointer;
+}
+
+/* Cabeçalho Verde do WhatsApp */
+.whats-topo {
+    background-color: #008069; /* Verde oficial atualizado */
+    color: #ffffff;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.whats-avatar {
+    width: 38px;
+    height: 38px;
+    background-color: #dfe5e7;
+    color: #008069;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.whats-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.whats-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    line-height: 1.2;
+}
+
+.whats-info span {
+    font-size: 0.68rem;
+    opacity: 0.85;
+}
+
+/* Área de Conversa */
+.whats-chat {
+    padding: 12px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    color: #111b21;
+}
+
+/* Etiqueta "HOJE" automática no topo do chat */
+.whats-chat::before {
+    content: "HOJE";
+    align-self: center;
+    background-color: #ffffff;
+    color: #54656f;
+    font-size: 0.62rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2px;
+}
+
+/* Balão da Cliente (Branco) */
+.msg-cliente {
+    position: relative;
+    background-color: #ffffff;
+    padding: 8px 10px 6px;
+    border-radius: 0 10px 10px 10px;
+    align-self: flex-start;
+    max-width: 88%;
+    box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.13);
+}
+
+/* Pontinha esquerda do balão branco */
+.msg-cliente::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -7px;
+    border-width: 0 8px 8px 0;
+    border-style: solid;
+    border-color: transparent #ffffff transparent transparent;
+}
+
+/* Balão do Salão (Verde Claro) */
+.msg-salao {
+    position: relative;
+    background-color: #d9fdd3;
+    padding: 8px 10px 6px;
+    border-radius: 10px 0 10px 10px;
+    align-self: flex-end;
+    max-width: 88%;
+    box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.13);
+}
+
+/* Pontinha direita do balão verde */
+.msg-salao::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -7px;
+    border-width: 8px 8px 0 0;
+    border-style: solid;
+    border-color: #d9fdd3 transparent transparent transparent;
+}
+
+.whats-hora {
+    display: block;
+    font-size: 0.62rem;
+    color: #667781;
+    text-align: right;
+    margin-top: 3px;
+}
+
+.msg-salao .whats-hora {
+    color: #53bdeb; /* Deixa o ✓✓ azul igual conversa lida */
+    font-weight: 600;
 }
 
 @keyframes aparecerTitulo {
-  to {
+    to {
         opacity: 1;
         transform: translateX(0);
     }
@@ -309,7 +493,7 @@ padding-top: 3%;
     gap: 10px;
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
     z-index: 9999;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;          
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     animation: pulsoWhats 2s infinite;
 }
 
@@ -333,7 +517,8 @@ padding-top: 3%;
     font-size: 1.1rem;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: pulsoWhats 2s infinite; /* Ativa o pulso infinito */
+    animation: pulsoWhats 2s infinite;
+    /* Ativa o pulso infinito */
 }
 
 .botao-whatsapp:hover {
@@ -342,7 +527,58 @@ padding-top: 3%;
 }
 
 @keyframes pulsoWhats {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-    70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+    }
+
+    70% {
+        box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+
+.rodape-site {
+    background: var(--menu);
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: .9rem;
+    margin-top: 50px;
+    border-radius: 20px 20px 0 0;
+}
+
+.rodape-conteudo {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 auto;
+}
+
+.rodape-conteudo p {
+    margin: 0;
+}
+
+.rodape-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.link-rodape {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: .8;
+    transition: .3s;
+}
+
+.link-rodape:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
