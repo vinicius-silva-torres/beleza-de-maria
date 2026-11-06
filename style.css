@@ -7,15 +7,21 @@
 }
 
 html, body {
-    font-family: Arial, sans-serif;
+    
+    margin: 0;
+    padding: 0;
+    
+    position: relative;
+    width: 100%;
+}
+
+body {
+
+font-family: Arial, sans-serif;
     text-align: center;
     color: #333;
     background-color: var(--pink);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
+
 }
 
 .logo{
@@ -38,7 +44,6 @@ height: 10vh
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
     width: 100%;
     box-sizing: border-box;
     border-radius: 0 0 15px 15px;
@@ -55,6 +60,12 @@ height: 10vh
     
 }
 
+h1 {
+
+    font-size: 20px;
+
+}
+
 .carrossel-galeria {
     
     display:flex ;
@@ -65,7 +76,7 @@ height: 10vh
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .card-carrossel {
@@ -162,7 +173,7 @@ padding-top: 3%;
 
     background-color: #ff6af3;
     border-radius: 40%;
-    opacity: 0;
+    opacity: 1;
     transform: translateX(-20px);
     animation: aparecerTitulo linear both;
     animation-timeline: view();
