@@ -2,7 +2,7 @@
 
 const links = {
     whatsapp: "https://wa.me/5511930878894?text=Olá!%20Vi%20o%20site%20e%20quero%20receber%20meu%20desconto%20exclusivo." ,
-    instagram: "https://instagram.com/seubordado",
+    instagram: "https://instagram.com/seubordado" ,
     maps: "https://maps.google.com/"
 };
 
@@ -15,6 +15,7 @@ botao.href = links.whatsapp;
 
 document.querySelectorAll(".link-instagram").forEach(botao => {
 
+     console.log("Encontrei o Instagram!");
 botao.href = links.instagram;
 
 
@@ -23,8 +24,6 @@ botao.href = links.instagram;
 document.querySelectorAll(".link-maps").forEach(botao => {
 
 botao.href = links.maps;
-
-
 })
 
 const carrossel = document.querySelector('.carrossel-galeria');
