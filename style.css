@@ -1,4 +1,6 @@
 :root {
+    --fonte-titulo: "Playfair Display", serif;
+    --fonte-texto: "Montserrat", sans-serif;
     --pink: #faaec7;
     --vinho: #2D1B2E;
     --fundo: #FFF7FA;
@@ -6,13 +8,14 @@
     --fonte: #333;
     --fontecabecalho: rgb(172, 255, 146);
     --destaque: rgb(251, 253, 105);
+    --legenda: rgb(143, 4, 120);
 }
 
 
 
 html,
 body {
-
+    
     margin: 0;
     padding: 0;
     position: relative;
@@ -21,11 +24,20 @@ body {
 
 body {
 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--fonte-texto);
     text-align: center;
     color: var(--fonte);
     background-color: var(--pink);
 
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+}
+
+h2, h3, p {
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -64,7 +76,6 @@ body {
     padding: 8px 12px;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.15);
-    /* Efeito vidro translúcido */
     transition: background-color 0.3s ease, transform 0.2s ease;
 
 }
@@ -90,9 +101,8 @@ nav.cabecalho a:hover {
 }
 
 .destaque-animado {
-    /* Cor inicial do texto (ex: preto para salão, ou o vinho do bordado) */
     color: var(--vinho);
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
 
     /* Prepara o texto para receber a tinta (background) */
     background: linear-gradient(90deg,
@@ -196,7 +206,7 @@ nav.cabecalho a:hover {
     opacity: 0;
     pointer-events: none; /* Evita cliques nas fotos de trás */
     
-    background-color: rgba(45, 27, 46, 0.88); /* Fundo vinho translúcido */
+    background-color: var(--legenda); /* Fundo vinho translúcido */
     color: #ffffff;
     text-decoration: none;
     font-size: 0.78rem;
@@ -205,8 +215,6 @@ nav.cabecalho a:hover {
     padding: 8px 16px;
     border-radius: 50px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    
-    /* Animação rápida na saída (quando a foto sai do centro) */
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -214,7 +222,6 @@ nav.cabecalho a:hover {
     opacity: 1;
     transform: translateX(-50%) translateY(0) scale(1);
     pointer-events: auto;
-    /* O 0.25s no final espera a foto chegar no meio antes de subir a legenda */
     transition: opacity 0.4s ease 0.25s, transform 0.4s ease 0.25s;
 }
 
@@ -642,4 +649,10 @@ nav.cabecalho a:hover {
 .link-rodape:hover {
     opacity: 1;
     text-decoration: underline;
+}
+
+.maps {
+
+border-radius: 15px;
+
 }
