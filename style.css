@@ -8,6 +8,7 @@
     --fonte: #333;
     --fontecabecalho: rgb(172, 255, 146);
     --destaque: rgb(251, 253, 105);
+    --destaque2: rgb(247, 58, 0);
     --legenda: rgb(143, 4, 120);
 }
 
@@ -37,7 +38,7 @@ h1, h2, h3 {
 }
 
 h2, h3, p {
-    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -87,6 +88,7 @@ nav.cabecalho a:hover {
 
 .selo-topo {
     display: inline-block;
+    font-family: var(--fonte-texto);
     background-color: var(--fundo);
     color: var(--menu);
     font-size: 0.8rem;
@@ -101,38 +103,91 @@ nav.cabecalho a:hover {
 }
 
 .destaque-animado {
-    color: var(--vinho);
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
-
-    /* Prepara o texto para receber a tinta (background) */
+ 
     background: linear-gradient(90deg,
             var(--destaque) 0%,
-            /* A "Tinta": Dourado para salão ou #ff6af3 para bordado */
+        
             var(--destaque) 0% 50%,
             var(--vinho) 50%,
-            /* A cor original esperando para ser pintada */
+            
             var(--vinho) 100%);
     background-size: 200% 100%;
-    /* Cria o espaço para o movimento */
-    background-position: 100% 0;
-    /* Começa com o texto na cor original (direita) */
 
-    /* Aplica o fundo (tinta) APENAS no texto */
+    background-position: 100% 0;
+
     -webkit-background-clip: text;
     background-clip: text;
 
-    /* Deixa o texto invisível para o fundo aparecer por trás dele */
     -webkit-text-fill-color: transparent;
 
-    /* Dispara a animação como uma pincelada contínua */
-    animation: passarTinta 2.5s ease-in-out 0.3s forwards;
+    
 
 }
 
+.destaque-animado-mudar-cor {
+
+    
+   background: linear-gradient(
+        90deg,
+        var(--destaque2) 0%,
+        var(--destaque2) 50%,
+        var(--vinho) 50%,
+        var(--vinho) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+   
+    animation: passarTinta 2.5s ease-in-out 0.3s forwards;
+    
+   
+    animation-timeline: view();
+    animation-range: entry 30% cover 70%;
+
+}
+
+.coracao-linha {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    margin-left: 4px;
+    fill: none;
+    stroke: var(--destaque2); 
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+
+    animation: desenharCoracao linear both;
+    animation-timeline: view();
+    animation-range: entry 40% cover 60%;
+}
+
+@keyframes desenharCoracao {
+    0% {
+        stroke-dashoffset: 100;
+        transform: scale(0.8);
+    }
+    80% {
+        stroke-dashoffset: 0;
+        transform: scale(1.15); /* Dá um leve "pulo" quando fecha o desenho */
+    }
+    100% {
+        stroke-dashoffset: 0;
+        transform: scale(1);
+    }
+}
+
+
 .titulo-2 {
 
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
+   animation-timeline: view();
+   animation-range: entry 10% cover 45%;
 }
 
 /* O motor da animação: move o gradiente da direita (cor original) para a esquerda (tinta) */
@@ -292,7 +347,10 @@ nav.cabecalho a:hover {
 
 }
 
+.CTA-Whatsapp-espaco {
 
+    margin: 0 10px;
+}
 
 
 #img-presente-exclusivo {
@@ -372,7 +430,6 @@ nav.cabecalho a:hover {
     user-select: none;
 }
 
-/* Posições do Carrossel */
 .card-whats-carrossel.centro {
     opacity: 1;
     z-index: 3;
@@ -394,7 +451,6 @@ nav.cabecalho a:hover {
     cursor: pointer;
 }
 
-/* Cabeçalho Verde do WhatsApp */
 .whats-topo {
     background-color: #008069; /* Verde oficial atualizado */
     color: #ffffff;
@@ -585,7 +641,7 @@ nav.cabecalho a:hover {
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: pulsoWhats 2s infinite;
-    /* Ativa o pulso infinito */
+
 }
 
 .botao-whatsapp:hover {
