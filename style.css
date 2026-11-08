@@ -1,137 +1,135 @@
 :root {
     --fonte-titulo: "Playfair Display", serif;
     --fonte-texto: "Montserrat", sans-serif;
-    --pink: #faaec7;
-    --vinho: #2D1B2E;
-    --fundo: #FFF7FA;
-    --menu: rgb(143, 4, 120);
-    --fonte: #333;
-    --fontecabecalho: rgb(172, 255, 146);
-    --destaque: rgb(251, 255, 36);
-    --destaque2: rgb(247, 58, 0);
-    --legenda: rgb(143, 4, 120);
+
+    /* === PALETA SALÃO DE BELEZA (NUDE, PRETO LUXO E DOURADO) === */
+    --pink: #FAF6F0;                 /* 1. Fundo geral: Champanhe/Nude suave */
+    --fundo: #FFFFFF;                /* 2. Fundo dos cartões e selos: Branco puro */
+    --menu: #181512;                 /* 3. Cabeçalho e rodapé: Preto Expresso */
+    --legenda: rgba(24, 21, 18, 0.9);/* 4. Botão flutuante dentro do carrossel */
+    --vinho: #1C1917;                /* 5. Cor base dos títulos principais */
+    --fonte: #3D3834;                /* 6. Cor dos parágrafos */
+    --fontecabecalho: #D4AF37;       /* 7. Detalhes do cabeçalho */
+    --destaque: #C59B27;             /* 8. Tinta Dourada (Títulos 1 e 2) */
+    --destaque2: #B85D6F;            /* 9. Tinta Rose Gold (Depoimentos + Coração) */
 }
-
-
 
 html,
 body {
-    
     margin: 0;
     padding: 0;
     position: relative;
     width: 100%;
+    overflow-x: clip; /* Trava a lateral no celular SEM quebrar o animation-timeline: view() */
+    scroll-behavior: smooth;
 }
 
 body {
-
     font-family: var(--fonte-texto);
     text-align: center;
     color: var(--fonte);
     background-color: var(--pink);
-
 }
 
 h1, h2, h3 {
     font-family: var(--fonte-titulo);
     font-weight: 600;
-}
-
-h1,  h2, h3 {
-    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+    color: var(--vinho);
 }
 
 p {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    line-height: 1.5;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logo {
-
     display: flex;
-    align-items: left;
-    height: 10vh
-}
-
-.cabecalho {
-
-    color: var(--fontecabecalho);
-    text-decoration: none;
-
+    height: 8vh;
+    max-height: 55px;
+    width: auto;
 }
 
 #navegacao {
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 15%;
     width: 100%;
     box-sizing: border-box;
-    border-radius: 0 0 15px 15px;
+    border-radius: 0 0 18px 18px;
     background-color: var(--menu);
-    padding: 10px 5%;
+    padding: 12px 5%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+nav.cabecalho {
+    display: flex;
+    gap: 8px;
 }
 
 .cabecalho a {
-
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: bold;
-    padding: 8px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 14px;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    background-color: rgba(255, 255, 255, 0.08);
     transition: background-color 0.3s ease, transform 0.2s ease;
-
 }
 
 nav.cabecalho a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--destaque);
+    color: #ffffff;
     transform: translateY(-2px);
 }
+
 
 .selo-topo {
     display: inline-block;
     font-family: var(--fonte-texto);
     background-color: var(--fundo);
     color: var(--menu);
-    font-size: 0.8rem;
-    font-weight: bold;
+    border: 1px solid rgba(197, 155, 39, 0.35);
+    font-size: 0.75rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 6px 16px;
+    padding: 7px 16px;
     border-radius: 50px;
-    margin-top: 20px;
+    margin-top: 22px;
     margin-bottom: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .destaque-animado {
- 
-    background: linear-gradient(90deg,
-            var(--destaque) 0%,
-        
-            var(--destaque) 0% 50%,
-            var(--vinho) 50%,
-            
-            var(--vinho) 100%);
+    background: linear-gradient(
+        90deg,
+        var(--destaque) 0%,
+        var(--destaque) 50%,
+        var(--vinho) 50%,
+        var(--vinho) 100%
+    );
     background-size: 200% 100%;
-
     background-position: 100% 0;
-
     -webkit-background-clip: text;
     background-clip: text;
-
     -webkit-text-fill-color: transparent;
-
-    animation: passarTinta 2.5s ease-in-out 0.3s forwards;
-
+    animation: passarTinta 2s ease-in-out 0.2s forwards;
 }
 
-.destaque-animado-mudar-cor {
+.titulo-2.destaque-animado,
+.titulo-2 .destaque-animado {
+    animation: passarTinta linear both;
+    animation-timeline: view();
+    animation-range: entry 15% cover 50%;
+}
 
-    
-   background: linear-gradient(
+
+.destaque-animado-mudar-cor {
+    background: linear-gradient(
         90deg,
         var(--destaque2) 0%,
         var(--destaque2) 50%,
@@ -140,94 +138,56 @@ nav.cabecalho a:hover {
     );
     background-size: 200% 100%;
     background-position: 100% 0;
-
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-
-   
-    animation: passarTinta 2.5s ease-in-out 0.3s forwards;
-    
-   
+    animation: passarTinta linear both;
     animation-timeline: view();
-    animation-range: entry 30% cover 70%;
-
+    animation-range: entry 15% cover 50%;
 }
 
+
 .coracao-linha {
+    display: inline-block;
     width: 28px;
     height: 28px;
     vertical-align: middle;
     margin-left: 4px;
     fill: none;
-    stroke: var(--destaque2); 
+    stroke: var(--destaque2);
     stroke-width: 2.2;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
-
     animation: desenharCoracao linear both;
     animation-timeline: view();
-    animation-range: entry 40% cover 60%;
-}
-
-@keyframes desenharCoracao {
-    0% {
-        stroke-dashoffset: 100;
-        transform: scale(0.8);
-    }
-    80% {
-        stroke-dashoffset: 0;
-        transform: scale(1.15); /* Dá um leve "pulo" quando fecha o desenho */
-    }
-    100% {
-        stroke-dashoffset: 0;
-        transform: scale(1);
-    }
-}
-
-
-.titulo-2 {
-
-   animation-timeline: view();
-   animation-range: entry 10% cover 45%;
-}
-
-/* O motor da animação: move o gradiente da direita (cor original) para a esquerda (tinta) */
-@keyframes passarTinta {
-    to {
-        background-position: 0 0;
-    }
-}
-
-@keyframes desenharSublinhado {
-    to {
-        transform: scaleX(1);
-    }
+    animation-range: entry 25% cover 55%;
 }
 
 #inicio {
-
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
 }
 
 .hero h1 {
-
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     line-height: 1.3;
     max-width: 90%;
-    margin: 10px auto 20px auto;
+    margin: 10px auto 18px auto;
     color: var(--vinho);
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4));
-
 }
 
-.carrossel-galeria {
+.subtitulo-hero {
+    max-width: 520px;
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
 
+
+.carrossel-galeria {
     display: flex;
     position: relative;
     width: 100%;
@@ -236,13 +196,13 @@ nav.cabecalho a:hover {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .card-carrossel {
     position: absolute;
     width: 250px;
-    height: 270px;
+    height: 275px;
     border-radius: 18px;
     opacity: 0;
     transform: scale(0.5);
@@ -263,17 +223,17 @@ nav.cabecalho a:hover {
     left: 50%;
     transform: translateX(-50%) translateY(20px) scale(0.9);
     opacity: 0;
-    pointer-events: none; /* Evita cliques nas fotos de trás */
-    
-    background-color: var(--legenda); /* Fundo vinho translúcido */
+    pointer-events: none;
+    background-color: var(--legenda);
+    border: 1px solid rgba(212, 175, 55, 0.5);
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.78rem;
-    font-weight: bold;
+    font-size: 0.76rem;
+    font-weight: 600;
     white-space: nowrap;
     padding: 8px 16px;
     border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -287,8 +247,8 @@ nav.cabecalho a:hover {
 .card-carrossel.centro {
     opacity: 1;
     z-index: 3;
-    transform: translateX(0) scale(1.1);
-    box-shadow: 1px 4px 9px -3px #000000
+    transform: translateX(0) scale(1.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
 .card-carrossel.esquerda {
@@ -303,105 +263,99 @@ nav.cabecalho a:hover {
     transform: translateX(38%) scale(0.8) rotate(6deg);
 }
 
-.vantagem {
 
-    background: var(--fundo);
-    padding: 18px;
-    border-radius: 15px;
-    margin: 12px auto;
-    max-width: 320px;
-    opacity: 1;
-    transform: translateX(-20px);
-    animation: aparecerTitulo linear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
-
-}
-
-.grade-galeria {
-    display: flex;           /* Obrigatório para o alinhamento funcionar */
-    flex-direction: column;  /* Coluna no celular */
+.grade-galeria,
+.vantagens-cta {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 25px;
     padding: 10px 15px;
-}
-
-@media (min-width: 768px) {
-    .grade-galeria {
-        display: flex;
-        flex-direction: row;         /* Coloca em linha horizontal */
-        justify-content: center;     /* Centraliza os 3 cards na tela */
-        align-items: center;     /* Alinha todos pelo topo */
-        gap: 30px;                   /* Espaço entre um card e outro */
-        max-width: 1100px;           /* Limita a largura máxima no monitor */
-        margin: 0 auto;              /* Centraliza a grade inteira */
-    }
-
-    .card-bordado {
-        flex: 1;                     /* Faz os 3 dividirem o espaço igualmente */
-    }
-}
-
-.CTA-Whatsapp {
-
-    transform: translateX(-20px);
-    animation: aparecerTitulo linear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
-
-}
-
-.CTA-Whatsapp-espaco {
-
-    margin: 0 10px;
-}
-
-
-#img-presente-exclusivo {
-
-    padding-top: 3%;
-
 }
 
 .card-bordado {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: var(--fundo);
+    padding: 16px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
     max-width: 320px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .card-bordado img {
-
+    width: 100%;
+    height: 260px;
     object-fit: cover;
-    height: 35vh;
-    padding-bottom: 5px;
+    border-radius: 14px;
+    margin-bottom: 10px;
     animation: crescer linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-
+    animation-range: entry 5% cover 35%;
 }
 
 .titulos-secundarios {
-
-    background-color: var(--fundo);
-    font-weight: bold;
-
-    letter-spacing: 1px;
-    padding: 6px 16px;
+    background-color: var(--pink);
+    color: var(--vinho);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 6px 18px;
     border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    opacity: 1;
-    transform: translateX(-20px);
+    margin: 8px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     animation: aparecerTitulo linear both;
     animation-timeline: view();
-    animation-range: entry 10% cover 40%;
-
-
+    animation-range: entry 5% cover 35%;
 }
 
+.vantagem {
+    background: var(--fundo);
+    padding: 20px;
+    border-radius: 16px;
+    max-width: 320px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    border-top: 3px solid var(--destaque);
+    animation: aparecerTitulo linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 35%;
+}
+
+@media (min-width: 768px) {
+    .grade-galeria,
+    .vantagens-cta {
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        gap: 28px;
+        max-width: 1100px;
+        margin: 15px auto;
+    }
+
+    .card-bordado,
+    .vantagem {
+        flex: 1;
+    }
+}
+
+.CTA-Whatsapp {
+    animation: aparecerTitulo linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 35%;
+}
+
+.CTA-Whatsapp-espaco {
+    margin: 25px 15px;
+}
+
+/* === CARROSSEL DE DEPOIMENTOS (WHATSAPP) === */
 .secao-depoimentos {
-    padding: 20px 0;
+    padding: 15px 0 25px;
     overflow: hidden;
 }
 
@@ -420,11 +374,10 @@ nav.cabecalho a:hover {
     position: absolute;
     width: 285px;
     background-color: #efeae2;
-    /* Textura sutil imitando o papel de parede do WhatsApp */
     background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
     background-size: 14px 14px;
     border-radius: 18px;
-    border: 3px solid #ffffff; /* Borda de recorte de print */
+    border: 3px solid #ffffff;
     overflow: hidden;
     text-align: left;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -456,7 +409,7 @@ nav.cabecalho a:hover {
 }
 
 .whats-topo {
-    background-color: #008069; /* Verde oficial atualizado */
+    background-color: #008069;
     color: #ffffff;
     padding: 10px 14px;
     display: flex;
@@ -498,7 +451,6 @@ nav.cabecalho a:hover {
     opacity: 0.85;
 }
 
-/* Área de Conversa */
 .whats-chat {
     padding: 12px 14px 16px;
     display: flex;
@@ -509,7 +461,6 @@ nav.cabecalho a:hover {
     color: #111b21;
 }
 
-/* Etiqueta "HOJE" automática no topo do chat */
 .whats-chat::before {
     content: "HOJE";
     align-self: center;
@@ -523,7 +474,6 @@ nav.cabecalho a:hover {
     margin-bottom: 2px;
 }
 
-/* Balão da Cliente (Branco) */
 .msg-cliente {
     position: relative;
     background-color: #ffffff;
@@ -534,7 +484,6 @@ nav.cabecalho a:hover {
     box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.13);
 }
 
-/* Pontinha esquerda do balão branco */
 .msg-cliente::before {
     content: "";
     position: absolute;
@@ -545,7 +494,6 @@ nav.cabecalho a:hover {
     border-color: transparent #ffffff transparent transparent;
 }
 
-/* Balão do Salão (Verde Claro) */
 .msg-salao {
     position: relative;
     background-color: #d9fdd3;
@@ -556,7 +504,6 @@ nav.cabecalho a:hover {
     box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.13);
 }
 
-/* Pontinha direita do balão verde */
 .msg-salao::before {
     content: "";
     position: absolute;
@@ -576,33 +523,16 @@ nav.cabecalho a:hover {
 }
 
 .msg-salao .whats-hora {
-    color: #53bdeb; /* Deixa o ✓✓ azul igual conversa lida */
+    color: #53bdeb;
     font-weight: 600;
 }
 
-@keyframes aparecerTitulo {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes crescer {
-    from {
-        transform: scale(0.8);
-    }
-
-    to {
-        transform: scale(1.2);
-    }
-}
 
 .icone-whats {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
 }
-
 
 .whatsapp-pilula-flutuante {
     position: fixed;
@@ -612,7 +542,7 @@ nav.cabecalho a:hover {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
     padding: 12px 20px;
     border-radius: 50px;
     display: inline-flex;
@@ -629,23 +559,21 @@ nav.cabecalho a:hover {
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
 }
 
-
 .botao-whatsapp {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 18px 35px;
+    padding: 18px 32px;
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: pulsoWhats 2s infinite;
-
 }
 
 .botao-whatsapp:hover {
@@ -653,34 +581,44 @@ nav.cabecalho a:hover {
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
 }
 
-@keyframes pulsoWhats {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
-    }
 
-    70% {
-        box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
+.info-local {
+    background: var(--fundo);
+    max-width: 600px;
+    width: 90%;
+    margin: 35px auto 10px auto;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 }
 
+.info-local h2 {
+    margin-top: 0;
+    font-size: 1.35rem;
+}
+
+.maps {
+    width: 90%;
+    max-width: 600px;
+    height: 320px;
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
 
 .rodape-site {
     background: var(--menu);
     color: #fff;
-    padding: 30px 20px;
+    padding: 30px 20px 85px 20px;
     text-align: center;
-    font-size: .9rem;
+    font-size: 0.9rem;
     margin-top: 50px;
     border-radius: 20px 20px 0 0;
 }
 
 .rodape-conteudo {
     max-width: 600px;
-    height: 90px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -699,11 +637,11 @@ nav.cabecalho a:hover {
 }
 
 .link-rodape {
-    color: #fff;
+    color: var(--destaque);
     text-decoration: none;
     font-weight: bold;
-    opacity: .8;
-    transition: .3s;
+    opacity: 0.9;
+    transition: 0.3s;
 }
 
 .link-rodape:hover {
@@ -711,12 +649,61 @@ nav.cabecalho a:hover {
     text-decoration: underline;
 }
 
-.maps {
 
-width: 90%;
-    max-width: 600px;
-    height: 320px;
-    border-radius: 15px;
-    margin-top: 25px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+@keyframes passarTinta {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+@keyframes desenharCoracao {
+    0% {
+        stroke-dashoffset: 100;
+        transform: scale(0.8);
+    }
+    80% {
+        stroke-dashoffset: 0;
+        transform: scale(1.15);
+    }
+    100% {
+        stroke-dashoffset: 0;
+        transform: scale(1);
+    }
+}
+
+@keyframes aparecerTitulo {
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes crescer {
+    from {
+        opacity: 0.7;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulsoWhats {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
 }
