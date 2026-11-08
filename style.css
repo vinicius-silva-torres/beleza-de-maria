@@ -52,20 +52,94 @@ p {
 }
 
 #navegacao {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Garante a logo cravada no centro exato */
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
-    border-radius: 0 0 18px 18px;
-    background-color: var(--menu);
-    padding: 12px 5%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    background-color: rgba(250, 246, 240, 0.94); /* Tom champanhe translúcido */
+    backdrop-filter: blur(10px);
+    padding: 10px 5%;
+    border-bottom: 1px solid rgba(197, 155, 39, 0.3);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav.cabecalho {
+.nav-esquerda {
     display: flex;
-    gap: 8px;
+    justify-content: flex-start;
+}
+
+.nav-direita {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Link "Início" limpo e elegante */
+.link-menu {
+    color: var(--vinho);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.link-menu:hover {
+    color: var(--destaque);
+    background-color: rgba(197, 155, 39, 0.08);
+}
+
+/* Logo centralizada com remoção automática do fundo branco */
+.logo-centro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    height: 54px;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* Deixa o fundo branco da imagem 100% transparente! */
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Botão "Agendar Horário" em duas linhas empilhadas como no seu desenho */
+.btn-agendar-topo {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--destaque) 0%, #a67f19 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 7px 16px;
+    border-radius: 50px;
+    box-shadow: 0 3px 10px rgba(197, 155, 39, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-agendar-topo span {
+    font-size: 0.68rem;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.btn-agendar-topo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(197, 155, 39, 0.5);
 }
 
 .cabecalho a {
