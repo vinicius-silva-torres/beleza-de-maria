@@ -1,7 +1,7 @@
 
 
 const links = {
-    whatsapp: "https://wa.me/5511970831504?text=Olá!%20Vi%20o%20site%20e%20quero%20receber%20meu%20desconto%20exclusivo." ,
+    whatsapp: "https://wa.me/5511943927040?text=Olá!%20Vi%20o%20site%20e%20quero%20receber%20meu%20desconto%20exclusivo." ,
     instagram: "https://instagram.com/seubordado" ,
     maps: "https://maps.google.com/"
 };
