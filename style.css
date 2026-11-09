@@ -2,25 +2,35 @@
     --fonte-titulo: "Playfair Display", serif;
     --fonte-texto: "Montserrat", sans-serif;
 
-    /* === PALETA SALÃO DE BELEZA (NUDE, PRETO LUXO E DOURADO) === */
-    --pink: #FAF6F0;                 /* 1. Fundo geral: Champanhe/Nude suave */
-    --fundo: #FFFFFF;                /* 2. Fundo dos cartões e selos: Branco puro */
-    --menu: #181512;                 /* 3. Cabeçalho e rodapé: Preto Expresso */
-    --legenda: rgba(24, 21, 18, 0.9);/* 4. Botão flutuante dentro do carrossel */
-    --vinho: #1C1917;                /* 5. Cor base dos títulos principais */
-    --fonte: #3D3834;                /* 6. Cor dos parágrafos */
-    --fontecabecalho: #D4AF37;       /* 7. Detalhes do cabeçalho */
-    --destaque: #C59B27;             /* 8. Tinta Dourada (Títulos 1 e 2) */
-    --destaque2: #B85D6F;            /* 9. Tinta Rose Gold (Depoimentos + Coração) */
-}
 
+    --pink: #FAF6F0;
+    --fundo: #FFFFFF;
+    --menu: #181512;
+    --legenda: rgba(24, 21, 18, 0.9);
+    --vinho: #1C1917;
+    --fonte: #3D3834;
+    --fontecabecalho: #D4AF37;
+    --destaque: #C59B27;
+    --destaque2: #B85D6F;
+
+   
+    --cor-fundo-titulo-card: #FAF6F0;  
+    --cor-borda-card: #C59B27;        
+    --cor-borda-card-brilho: #F3E5AB;  
+
+   
+    --cor-btn-dev-fundo: rgba(255, 255, 255, 0.07);
+    --cor-btn-dev-borda: #D4AF37;
+    --cor-btn-dev-texto: #FFFFFF;
+    --cor-btn-dev-destaque: #D4AF37;
+}
 html,
 body {
     margin: 0;
     padding: 0;
     position: relative;
     width: 100%;
-    overflow-x: clip; /* Trava a lateral no celular SEM quebrar o animation-timeline: view() */
+    overflow-x: clip; 
     scroll-behavior: smooth;
 }
 
@@ -44,11 +54,24 @@ p {
     margin-right: auto;
 }
 
-.logo {
+.logo-centro {
     display: flex;
-    height: 8vh;
-    max-height: 55px;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.logo {
+    height: 100px; 
     width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* Remove o fundo branco automaticamente */
+    transform: scale(1.18);   /* Dá zoom extra no desenho sem engrossar a barra */
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.25);
 }
 
 #navegacao {
@@ -57,7 +80,7 @@ p {
     align-items: center;
     width: 100%;
     box-sizing: border-box;
-    background-color: rgba(250, 246, 240, 0.94); /* Tom champanhe translúcido */
+    background-color: rgba(250, 246, 240, 0.94); 
     backdrop-filter: blur(10px);
     padding: 10px 5%;
     border-bottom: 1px solid rgba(197, 155, 39, 0.3);
@@ -75,6 +98,70 @@ p {
 .nav-direita {
     display: flex;
     justify-content: flex-end;
+}
+
+/* Link "Início" limpo e elegante */
+.link-menu {
+    color: var(--vinho);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.link-menu:hover {
+    color: var(--destaque);
+    background-color: rgba(197, 155, 39, 0.08);
+}
+
+.logo-centro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    height: 54px;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply; 
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+
+.btn-agendar-topo {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--destaque) 0%, #a67f19 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 7px 16px;
+    border-radius: 50px;
+    box-shadow: 0 3px 10px rgba(197, 155, 39, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-agendar-topo span {
+    font-size: 0.68rem;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.btn-agendar-topo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(197, 155, 39, 0.5);
 }
 
 /* Link "Início" limpo e elegante */
@@ -372,18 +459,75 @@ nav.cabecalho a:hover {
 }
 
 .titulos-secundarios {
-    background-color: var(--pink);
+    display: inline-block;
     color: var(--vinho);
     font-size: 1.15rem;
     font-weight: 700;
     letter-spacing: 0.5px;
-    padding: 6px 18px;
+    padding: 8px 22px;
     border-radius: 50px;
-    margin: 8px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    animation: aparecerTitulo linear both;
+    margin: 10px 0;
+    border: 2.5px solid transparent;
+    
+    /* Camada 1: Fundo da pílula | Camada 2: Borda que corre ao rolar a página */
+    background: 
+        linear-gradient(var(--cor-fundo-titulo-card), var(--cor-fundo-titulo-card)) padding-box,
+        linear-gradient(
+            90deg,
+            var(--cor-borda-card) 0%,
+            var(--cor-borda-card-brilho) 25%,
+            var(--cor-borda-card) 50%,
+            transparent 50%,
+            transparent 100%
+        ) border-box;
+    background-size: 100% 100%, 200% 100%;
+    background-position: 0 0, 100% 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+    animation: desenharBordaCard linear both;
     animation-timeline: view();
-    animation-range: entry 5% cover 35%;
+    animation-range: entry 10% cover 45%;
+}
+
+@keyframes desenharBordaCard {
+    from {
+        background-position: 0 0, 100% 0;
+        transform: translateY(15px) scale(0.94);
+        opacity: 0.3;
+    }
+    to {
+        background-position: 0 0, 0% 0;
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.btn-criador-rodape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 14px auto 0 auto;
+    padding: 10px 20px;
+    background-color: var(--cor-btn-dev-fundo);
+    border: 1px solid var(--cor-btn-dev-borda);
+    color: var(--cor-btn-dev-texto);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-criador-rodape strong {
+    color: var(--cor-btn-dev-destaque);
+    font-weight: 700;
+}
+
+.btn-criador-rodape:hover {
+    transform: translateY(-2px);
+    background-color: rgba(212, 175, 55, 0.18);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
 }
 
 .vantagem {
