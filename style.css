@@ -66,7 +66,7 @@ p {
     width: auto;
     object-fit: contain;
     mix-blend-mode: multiply; /* Remove o fundo branco automaticamente */
-    transform: scale(1.18);   /* Dá zoom extra no desenho sem engrossar a barra */
+    transform: scale(1.4);   /* Dá zoom extra no desenho sem engrossar a barra */
     transition: transform 0.3s ease;
 }
 
